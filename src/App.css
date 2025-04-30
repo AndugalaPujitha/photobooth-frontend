@@ -15,7 +15,13 @@ body {
 }
 
 /* Home Page */
+
 .landing-page {
+  flex: 1; /* Take up remaining space between header and footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
   text-align: center;
   padding: 2rem;
 }
@@ -59,6 +65,9 @@ body {
 
 .video-container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 90vw;
   max-width: 500px;
   height: 50vh;
@@ -105,6 +114,7 @@ video {
     opacity: 0;
   }
 }
+
 
 button {
   padding: 0.4rem 0.8rem;
@@ -196,4 +206,21 @@ button:hover {
   border-radius: 9999px;
   font-weight: bold;
   text-decoration: none;
+}
+
+.footer {
+  margin-top: auto;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  /* background-color: #f1f1f1; */
+  color: #444;
+  font-size: 0.875rem;
+  border-top: 1px solid #ddd;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
