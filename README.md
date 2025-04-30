@@ -1,14 +1,25 @@
-# React + Vite
+# 📸 Photobooth App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A stylish, interactive web-based photobooth built with **React** and ready for future expansion with the **MERN** stack. Capture fun photo strips with filters, countdown, flash effects, and download your final collage!
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🎨 Beautiful landing page with a "Start" button
+- 🎥 Live webcam feed with real-time filters
+- ⏱️ Countdown animation before capturing (3..2..1)
+- ⚡ Flash/click effect for realistic photo taking
+- 🖼️ Automatically generated 3-photo vertical strip
+- 📥 Download the final strip as a PNG image
+- 🧩 Designed with Tailwind-like utilities & responsive styles
+- 🔧 Built to scale with MongoDB, Express, Node (MERN-ready)
 
-## Expanding the ESLint configuration
+## 🔁 Workflow Overview
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-<!-- 
-npm run dev  : for running the file -->
+## 🛠️ Tech Stack
+
+- **Frontend**: React, JSX, Tailwind CSS-like custom styles
+- **Routing**: React Router DOM
+- **Canvas**: HTML5 Canvas API for image rendering
+- **State Management**: React Hooks (`useState`, `useRef`, `useEffect`)
+
+> Future Additions: MongoDB, Express, Node for saving strips, galleries, user auth.
