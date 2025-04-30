@@ -23,3 +23,4 @@ A stylish, interactive web-based photobooth built with **React** and ready for f
 - **State Management**: React Hooks (`useState`, `useRef`, `useEffect`)
 
 > Future Additions: MongoDB, Express, Node for saving strips, galleries, user auth.
+> https://selfie-spot.netlify.app/
