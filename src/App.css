@@ -1,0 +1,199 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: radial-gradient(circle, #9d8080, #ffffff);
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Home Page */
+.landing-page {
+  text-align: center;
+  padding: 2rem;
+}
+
+.logo-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.start-button {
+  background-color: #f43f5e;
+  color: white;
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+/* Shared App Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.video-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-container {
+  position: relative;
+  width: 90vw;
+  max-width: 500px;
+  height: 50vh;
+  border: 4px solid #7a93be;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.countdown {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+}
+
+.flash-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  opacity: 0.8;
+  z-index: 999;
+  animation: flash 0.3s ease-in-out;
+}
+
+@keyframes flash {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.filter-bar {
+  margin-top: 1rem;
+}
+
+.filter-bar-container {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  max-width: 500px;
+  scrollbar-width: none;
+}
+
+.filter-bar-container::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.button-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.capture-button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.reset-button {
+  background-color: #ef4444;
+  color: white;
+}
+
+.strip-output {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.strip-final {
+  width: 320px;
+  padding: 1rem 1rem 0.75rem 1rem;
+  background-color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.strip-final::after {
+  content: "photobooth";
+  display: block;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  padding-top: 0.5rem;
+  color: #222;
+}
+
+.download-button {
+  background-color: #10b981;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  text-decoration: none;
+}
