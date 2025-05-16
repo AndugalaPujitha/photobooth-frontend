@@ -1,4 +1,4 @@
-# 📸 Photobooth App
+# 📸 Photobooth App [🌐 Live Demo](https://selfie-spot.netlify.app/)
 
 A stylish, interactive web-based photobooth built with **React** and ready for future expansion with the **MERN** stack. Capture fun photo strips with filters, countdown, flash effects, and download your final collage!
 
@@ -23,4 +23,4 @@ A stylish, interactive web-based photobooth built with **React** and ready for f
 - **State Management**: React Hooks (`useState`, `useRef`, `useEffect`)
 
 > Future Additions: MongoDB, Express, Node for saving strips, galleries, user auth.
-> https://selfie-spot.netlify.app/
+
