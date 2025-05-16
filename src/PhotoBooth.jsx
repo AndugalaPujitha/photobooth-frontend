@@ -67,36 +67,55 @@ function PhotoBooth() {
     }
   };
 
-  const generateStrip = (images) => {
-    const width = 300;
-    const height = 400;
-    const canvas = stripCanvasRef.current;
-    const ctx = canvas.getContext("2d");
+const generateStrip = (images) => {
+  const width = 592;
+  const height = 1352;
+  const canvas = stripCanvasRef.current;
+  const ctx = canvas.getContext("2d");
 
-    canvas.width = width;
-    canvas.height = height;
+  canvas.width = width;
+  canvas.height = height;
 
-    const imgHeight = 120;
-    const spacing = 10;
+  const imgHeight = 360;
+  const spacing = 40;
+  const paddingTop = 96;
 
-    ctx.fillStyle = "white";
-    ctx.fillRect(0, 0, width, height);
+  // Clear and set background
+  ctx.clearRect(0, 0, width, height);
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, width, height);
 
-    images.forEach((imgData, i) => {
+  // Load all images first
+  const loadImage = (src) =>
+    new Promise((resolve) => {
       const img = new Image();
-      img.src = imgData;
-      img.onload = () => {
-        ctx.drawImage(img, 0, i * (imgHeight + spacing), width, imgHeight);
-        if (i === images.length - 1) {
-          ctx.fillStyle = "black";
-          ctx.font = "bold 16px Arial";
-          ctx.textAlign = "center";
-        //   ctx.fillText("photobooth", width / 2, height - 10);
-          setStripImage(canvas.toDataURL("image/png"));
-        }
-      };
+      img.onload = () => resolve(img);
+      img.src = src;
     });
-  };
+
+  Promise.all(images.map(loadImage)).then((loadedImages) => {
+    // Draw all photos
+    loadedImages.forEach((img, i) => {
+      const yOffset = paddingTop + i * (imgHeight + spacing);
+      ctx.drawImage(img, 0, yOffset, width, imgHeight);
+    });
+
+    // ✅ Draw black frame AFTER images
+    ctx.strokeStyle = "#000000";
+    ctx.lineWidth = 100;
+    ctx.strokeRect(0, 0, width, height);
+
+    // Optional: Draw label text inside image
+    // ctx.font = "bold 28px Courier New";
+    // ctx.fillStyle = "#222";
+    // ctx.textAlign = "center";
+    // ctx.fillText("photobooth", width / 2, height - 30);
+
+    // Export canvas
+    const stripData = canvas.toDataURL("image/png");
+    setStripImage(stripData);
+  });
+};
 
   const resetAll = () => {
     setCapturedImages([]);
@@ -150,14 +169,25 @@ function PhotoBooth() {
 
       {stripImage && (
         <div className="strip-output">
-          <img src={stripImage} alt="Photo Strip" className="strip-final" />
+          <img
+            src={stripImage}
+            alt="Photo Strip"
+            className="strip-final"
+            style={{ width: "230px" }}
+          />
           <a href={stripImage} download="photobooth-strip.png" className="download-button">
             Download Strip
           </a>
         </div>
       )}
 
-      <canvas ref={stripCanvasRef} className="hidden" />
+      <canvas
+        ref={stripCanvasRef}
+        className="hidden"
+        width={592}
+        height={1352}
+        style={{ width: "230px" }}
+      />
     </div>
   );
 }
